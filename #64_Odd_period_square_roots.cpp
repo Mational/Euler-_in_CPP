@@ -65,12 +65,14 @@ bool program(int inumber)
 int main()
 {
     int period=0;
-    for(int i=2;i<=10000;i++)
+    int limit;
+    cin >> limit;
+    for(int i=2;i<=limit;i++)
     {
         if(is_perfect_root(i)==true)    continue;
         if(program(i)==true)            period++;
     }
-    cout << "Answer: " << period << endl;
+    cout << period << endl;
     return 0;
 }
 
