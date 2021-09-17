@@ -4,12 +4,21 @@ using namespace std;
 
 int main()
 {
-    int s=0;
-    for( int i=3; i<1000; i++ )
+    int t;
+    cin >> t;
+    for(int a0=0;a0<t;a0++)
     {
-        if( i%3==0 || i%5==0 )
-            s+=i;
+        int n;
+        cin >> n;
+        n--;
+        long three=n/3;
+        long five=n/5;
+        long fifteen=n/15;
+        long long answer=0;
+        answer += (three*3+3)*three/2;
+        answer += (five*5+5)*five/2;
+        answer -= (fifteen*15+15)*fifteen/2;
+        cout << answer << endl;
     }
-    cout << s << endl;
     return 0;
 }
