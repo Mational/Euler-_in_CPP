@@ -2,25 +2,31 @@
 
 using namespace std;
 
-bool pierwsza( int i )
-{
-    for( int j=2; j*j<=i; j++ )
-    {
-        if( i%j==0 )
-            return false;
-    }
-    return true;
-}
+const int length=200001;
 
 int main()
 {
-    int liczba=1;
-    int l_pierwsze=0;
-    while( l_pierwsze!=10001 )
+    int t;
+    cin >> t;
+    for(int a0=0;a0<t;a0++)
     {
-        liczba++;
-        if( pierwsza(liczba)==true )
-            l_pierwsze++;
+        int limit;
+        cin >> limit;
+        int liczba=1, l_pierwsze=0;
+        bool numbers[length]={1,1};
+
+        int i=2;
+        while(l_pierwsze!=limit)
+        {
+            if(numbers[i]==0)
+            {
+                l_pierwsze++;
+                for(int j=i+i;j<length;j+=i)
+                    numbers[j]=1;
+            }
+            i++;
+        }
+        cout << i-1 << endl;
     }
-    cout << liczba << endl;
+    return 0;
 }
