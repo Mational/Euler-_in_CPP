@@ -5,17 +5,19 @@ using namespace std;
 
 int main()
 {
-    int s=0;
-    int sq_sum=0;
-    for( int i=1; i<=100; i++ )
+    int t;
+    cin >> t;
+    for(int a0=0;a0<t;a0++)
     {
-        s+=i;
-        sq_sum+=i*i;
+        int limit;
+        cin >> limit;
+        long long s=0, sq_sum=0;
+        for(int i=1; i<=limit; i++)
+        {
+            s+=i;
+            sq_sum+=i*i;
+        }
+        cout << (s*s)-sq_sum << endl;
     }
-    s*=s;
-    //cout << "Suma kwadratow: " << sq_sum << endl;
-    //cout << "Kwadrat sumy: " << s << endl;
-    int diff=s-sq_sum;
-    cout << "Roznica: " << diff << endl;
     return 0;
 }
