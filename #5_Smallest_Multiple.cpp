@@ -2,21 +2,32 @@
 
 using namespace std;
 
-bool nwd(int liczba )
+int nwd(int liczba, int a)
 {
-    for( int j=1; j<=20; j++ )
+    while(true)
     {
-        if( liczba%j==0 )
-            continue;
-        return false;
+        if(liczba>a)    swap(liczba,a);
+        if(liczba==0)   break;
+        int tmp=liczba;
+        liczba=a%liczba;
+        a=tmp;
     }
-    return true;
+    return a;
+
 }
 
 int main()
 {
-    int i;
-    for( i=20; nwd(i)==false; i+=20 ){}
-    cout << i << endl;
+    int t;
+    cin >> t;
+    for(int a0=0;a0<t;a0++)
+    {
+        int i;
+        cin >> i;
+        int answer=1;
+        for(int j=2; j<=i;j++)
+            answer=(answer*j)/nwd(j,answer);
+        cout << answer << endl;
+    }
     return 0;
 }
