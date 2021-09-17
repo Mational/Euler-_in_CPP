@@ -1,45 +1,42 @@
 #include <iostream>
-#include <math.h>
-#include <windows.h>
+#include <algorithm>
+#include <cmath>
 
 using namespace std;
 
-int palindrom( int idane )
-{
-    string pal;
-    int r=log10(idane)+1;
-    for( int z=0; z<r; z++ )
-    {
-        pal+=to_string(idane%10);
-        idane/=10;
-    }
-    return stoi(pal);
-}
+int maks=0;
 
-bool czy_palindrom( int dane )
+bool is_palindrom(int d)
 {
-    int wynik=palindrom(dane);
-    if( wynik==dane )
+    string pal=to_string(d);
+    reverse(pal.begin(),pal.end());
+    int rd=stoi(pal);
+    if(rd==d)
         return true;
     return false;
 }
 
+void program(int l)
+{
+    for(l=l-1;l>=101101;l--)
+        if(is_palindrom(l)==true)
+            for(int i=100;i<1000;i++)
+                if(l%i==0 && (int)log10(l/i)+1==3)
+                {
+                    cout << l << endl;
+                    return;
+                }
+}
+
 int main()
 {
-    int liczba;
-    int maks=0;
-    for( int i=999; i>=100; i-- )
+    int t;
+    cin >> t;
+    for(int a0=0;a0<t;a0++)
     {
-        for( int j=999; j>=100; j-- )
-        {
-            liczba=i*j;
-            if( czy_palindrom(liczba)==true )
-            {
-                if( liczba>maks)
-                    maks=liczba;
-            }
-        }
+        int limit;
+        cin >> limit;
+        program(limit);
     }
-    cout << "Wynik: " << maks << endl;
     return 0;
 }
