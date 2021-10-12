@@ -33,5 +33,6 @@ int main()
         dane.push_back(j);
     }
     najwiekszy_lancuch(dane);
+    cout << "ok" << endl;
     return 0;
 }
