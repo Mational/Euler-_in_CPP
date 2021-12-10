@@ -7,7 +7,7 @@ using namespace std;
 void najwiekszy_lancuch( vector <int>&d, int k, int n)
 {
     long long maks=0;
-    for( int i=0; i<=n; i++ )
+    for( int i=0; i<=n-k; i++ )
     {
         long long iloczyn=1;
         for( int j=0; j<k; j++ )
