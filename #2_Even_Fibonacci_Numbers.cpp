@@ -10,14 +10,13 @@ int main()
     {
         long limit;
         cin >> limit;
-        long a=1, b=1, c, s=0;
+        long a=1, b=1, s=0;
         while(b<=limit)
         {
             if( b%2==0 )
                 s+=b;
-            c=b;
             b+=a;
-            a=c;
+            a=b-a;
         }
         cout << s << endl;
     }
