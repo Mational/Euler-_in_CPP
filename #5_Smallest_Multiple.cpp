@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int nwd(int liczba, int a)                      //wyliczanie NWD
+int nwd(int liczba, int a)
 {
     while(true)
     {
@@ -26,7 +26,7 @@ int main()
         cin >> i;
         int answer=1;
         for(int j=2; j<=i;j++)
-            answer=(answer*j)/nwd(j,answer);  //wyszukiwanie NWW poprzez zale¿noœæ z NWD
+            answer=(answer*j)/nwd(j,answer);
         cout << answer << endl;
     }
     return 0;
