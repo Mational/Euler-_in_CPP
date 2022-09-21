@@ -4,28 +4,24 @@
 
 using namespace std;
 
-int maks=0;
-
-bool is_palindrom(int d)
-{
-    string pal=to_string(d);
-    reverse(pal.begin(),pal.end());
-    int rd=stoi(pal);
-    if(rd==d)
-        return true;
-    return false;
-}
-
 void program(int l)
 {
-    for(l=l-1;l>=101101;l--)
-        if(is_palindrom(l)==true)
-            for(int i=100;i<1000;i++)
-                if(l%i==0 && (int)log10(l/i)+1==3)
-                {
-                    cout << l << endl;
-                    return;
-                }
+    int h = l/1000, n;
+    string ls;
+    for(h;h>=101;h--)
+    {
+        ls = to_string(h);
+        reverse(ls.begin(),ls.end());
+        ls = to_string(h)+ls;
+        n=stoi(ls);
+        if(n>=l) continue;
+        for(int i=100;i<1000;i++)
+            if(n%i==0 && (int)log10(n/i)+1==3)
+            {
+                cout << n << endl;
+                return;
+            }
+    }
 }
 
 int main()
@@ -40,3 +36,4 @@ int main()
     }
     return 0;
 }
+
