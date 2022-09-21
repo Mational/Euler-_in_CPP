@@ -2,34 +2,30 @@
 
 using namespace std;
 
+long long program(int n)
+{
+    long long wynik = -1;
+    int a, b, c;
+    for(c=n;c>n/3;c--)
+        for(b=c-1;b+c<n;b--)
+        {
+            a = n-(b+c);
+            if(a>=b || a+b+c<n) break;
+            if((a*a)+(b*b)==(c*c) && a*b*c>wynik)
+                wynik = a*b*c;
+        }
+    return wynik;
+}
+
 int main()
 {
-    int a,b,c;
-    long long wynik=0;
-    for( c=3; c<=1000;c++ )
+    int t;
+    cin >> t;
+    for(int a0 = 0; a0 < t; a0++)
     {
-        for( b=2; b<=1000; b++ )
-        {
-            if(b>=c)
-                break;
-            else
-            {
-                for( a=1; a<=1000;a++ )
-                {
-                    if( a>=b)
-                        break;
-                    else
-                    {
-                        if( a+b+c==1000 && (a*a)+(b*b)==(c*c) )
-                        {
-                            cout << "A: " << a << "    B: " << b << "    C: " << c << endl;
-                            wynik=a*b*c;
-                            cout << "Wynik: " << wynik << endl;
-                        }
-                    }
-                }
-            }
-        }
+        int n;
+        cin >> n;
+        cout << program(n) << endl;
     }
     return 0;
 }
