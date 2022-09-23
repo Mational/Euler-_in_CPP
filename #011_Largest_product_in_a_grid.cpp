@@ -92,7 +92,9 @@ int main()
 {
     long long maks=0;
     int tab[20][20];
-    czytaj(tab,"liczby.txt");
+    for(int a0=0;a0<20;a0++)
+        for(int a1=0;a1<20;a1++)
+            cin >> tab[a0][a1];
     poziomo(tab,maks);
     pionowo(tab,maks);
     przekatna_p(tab,maks);
