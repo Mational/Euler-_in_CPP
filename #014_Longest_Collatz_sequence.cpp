@@ -2,32 +2,38 @@
 
 using namespace std;
 
-int collatz(long long liczba,int lancuch)
+int collatz(long long liczba)
 {
-    if(liczba==1)
-        return lancuch;
-    if(liczba%2==0)
-        return collatz(liczba/2,lancuch+1);
-    else
-        return collatz(liczba*3+1,lancuch+1);
+    int lancuch = 0;
+    while(liczba != 1)
+    {
+        lancuch++;
+        liczba = (liczba%2==0)?liczba/2:liczba*3+1;
+    }
+    return lancuch;
 }
 
 int main()
 {
-    int dl;
-    int maks_lancuch=0;
-    int max_liczba=0;
-    for(int i=2;i<1000000;i++)
+    int t;
+    cin >> t;
+    for(int a0=0;a0<t;a0++)
     {
-        dl=collatz(i,1);
-        if(dl>maks_lancuch)
+        int length;
+        cin >> length;
+        int dl;
+        int maks_lancuch=0;
+        int max_liczba=0;
+        for(int i=length;i>=1;i--)
         {
-            //cout << "Dlugosc: " << dl << endl;
-            // cout << "Liczba: " << i << endl;
-            maks_lancuch=dl;
-            max_liczba=i;
+            dl=collatz(i);
+            if(dl>maks_lancuch)
+            {
+                maks_lancuch=dl;
+                max_liczba=i;
+            }
         }
+        cout << max_liczba << endl;
     }
-    cout << "WYNIK: " << max_liczba << endl;
     return 0;
 }
